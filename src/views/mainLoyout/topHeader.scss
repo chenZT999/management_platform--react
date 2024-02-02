@@ -1,0 +1,8 @@
+.top-header-box{
+    height: 50px; width: 100%;
+    background: linear-gradient(to right, rgb(106,94,204), rgb(85,120,210));
+    color: #fff;
+    padding: 0 20px;
+
+    .user-avatar{ width:35px; height:35px;border-radius: 50%; margin: 0 10px 0 10px; }
+}

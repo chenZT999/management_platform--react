@@ -1,7 +1,7 @@
 
 import { Button, message, notification, Space } from 'antd';
 import { useState, useEffect } from 'react'
-import { NoteItem } from '../utils/api';
+import { NoteItem } from '@/utils/notes';
 
 export default function EditNote({activeNote, onNoteAdd, onNoteEdit}: {activeNote: NoteItem, onNoteAdd: Function, onNoteEdit: Function}) {
     useEffect(()=>{

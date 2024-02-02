@@ -1,7 +1,7 @@
 import { DownloadOutlined } from "@ant-design/icons";
 import { Button, message, Radio, Space } from "antd";
 import { useState } from "react";
-import NotesAPI, { NoteItem } from "../utils/api";
+import NotesAPI, { NoteItem } from "@/utils/notes";
 
 export default function ImportBox({notes, _refreshNotes}: {notes: NoteItem[], _refreshNotes: Function}) {
     

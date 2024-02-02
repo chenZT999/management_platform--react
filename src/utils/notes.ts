@@ -40,3 +40,5 @@ export interface NoteItem {
   body?: string
   updated?: string
 }
+
+export const a = 1

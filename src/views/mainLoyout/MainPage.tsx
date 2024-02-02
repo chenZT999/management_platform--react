@@ -1,11 +1,12 @@
 import TopHeader from './TopHeader'
 import LeftNav from './leftNav'
-import App from '@/App.tsx'
-export default function() {
+import App from '@/views/notesApp/Index.tsx'
+import './mainPage.scss'
+export default function MainPage() {
     return (
-        <div>
+        <div className='main-page-box'>
             <TopHeader />
-            <div>
+            <div className='flex-top bottom-box'>
                 <div>
                     <LeftNav></LeftNav>
                 </div>

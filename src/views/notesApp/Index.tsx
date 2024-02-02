@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import './App.css'
-import NoteView  from './componts/NoteView'
-import EditNote from './componts/EditNote'
-import NotesAPI, { NoteItem } from './utils/api'
-import ImportBox from './componts/ImportBox'
-
-function App() {
+import './index.scss'
+import NoteView  from '@/views/notesApp/NoteView.tsx'
+import EditNote from '@/views/notesApp/EditNote.tsx'
+import NotesAPI, { NoteItem } from '@/utils/notes'
+import ImportBox from '@/views/notesApp/ImportBox.tsx'
+export default function noteAppPage() {
   const [notes, setNotes] = useState(NotesAPI.getAllNotes())
   const [activeNote, setActiveNote] = useState({})
 
@@ -80,5 +79,3 @@ function App() {
     </div>
   )
 }
-
-export default App

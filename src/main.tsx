@@ -4,12 +4,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import store from './store/index.tsx'
 import {Provider} from 'react-redux'
 import Login from '@/views/login/login.tsx'
-import Main from '@/views/mainLoyout/Main.tsx'
+import MainPage from '@/views/mainLoyout/MainPage.tsx'
+import './main.scss'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main />
+    element: <MainPage />
   },
   {
     path: '/login',

@@ -1,7 +1,7 @@
+import { NoteItem } from '@/utils/notes';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Button, notification, Space } from 'antd';
 import { useMemo } from 'react';
-import { NoteItem } from '../utils/api';
 export default function NoteView ({activeNote, note, onNoteDelete}: {activeNote: NoteItem, note: NoteItem, onNoteDelete: Function}) {
     const onDelete = (event: any, id: number) =>{
         event.stopPropagation();  

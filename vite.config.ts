@@ -6,7 +6,8 @@ export default defineConfig({
   resolve: {
     extensions: [".js", ".ts", ".tsx", ".jsx"],
     alias: {
-      "@": resolve(__dirname, "src")
+      "@": resolve(__dirname, "src"),
+      "@img": resolve(__dirname, "src/assets/imgs"),
     }
   },
   
