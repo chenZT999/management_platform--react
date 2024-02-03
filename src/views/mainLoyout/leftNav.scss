@@ -1,4 +1,9 @@
 .left-nav-box{
     height:100%;
-    border: 1px solid #eee;
+    border-right: 1px solid #eee;
+
+    .nav-item{
+        height: 50px; width: 100%; cursor: pointer; color:#fff;
+        border-bottom: 1px solid #eee;
+    }
 }

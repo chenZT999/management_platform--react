@@ -5,7 +5,7 @@ interface InitialState {
     menu: Menu[]
 }
 
-interface Menu {
+export interface Menu {
     name: string
     path?: string
     element?: string
