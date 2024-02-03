@@ -2,12 +2,15 @@ import './topHeader.scss'
 import userHead from '../../assets/imgs/head.jpg'
 import { useState } from 'react'
 export default function TopHeader(){
-    const [todayTime, setTodayTime] = useState('')
-    setInterval(()=>{
-        const time = new Date().toLocaleString(undefined, {
+    const getTime=()=> {
+        return new Date().toLocaleString(undefined, {
             dateStyle: "full",
             timeStyle: "short",
         })
+    }
+    const [todayTime, setTodayTime] = useState(getTime())
+    setInterval(()=>{
+        const time = getTime()
         setTodayTime(time)
     }, 1000 * 30)
     
