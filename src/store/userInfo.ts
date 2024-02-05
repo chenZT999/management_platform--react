@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import userHead from '@img/head.jpg'
 interface InitialState {
     userName: string
     avatar: string
@@ -16,7 +17,7 @@ export interface Menu {
 
 const initialState: InitialState = {
     userName: '大少爷',
-    avatar: '',
+    avatar: userHead,
     menu: [
         {
             name: '功能',
@@ -24,20 +25,17 @@ const initialState: InitialState = {
                 {
                     name: '笔记本',
                     path: '/notesApp'
-                }, {
-                    name: '笔记本2',
-                    path: '/notesApp'
                 }
             ]
         }, {
             name: '表单',
             children: [
                 {
-                    name: '笔记本',
-                    path: '/notesApp'
+                    name: '表单控件',
+                    path: '/formPage'
                 }, {
-                    name: '笔记本2',
-                    path: '/notesApp'
+                    name: '表格组件',
+                    path: '/tablePage'
                 }
             ]
         }

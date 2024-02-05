@@ -2,8 +2,8 @@ import {useMemo} from 'react'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Login from '@/views/login/login.tsx'
 import MainPage from '@/views/mainLoyout/MainPage.tsx'
-import NotesApp from '@/views/notesApp/Index.tsx'
 import { useSelector} from 'react-redux'
+import allRoutes from './views/router.tsx'
 
 export default function App() {
     // 从个人信息获取路由权限
@@ -16,23 +16,22 @@ export default function App() {
             if(route.children) {
                 getUserMenu(route.children, result)
             } else {
+                console.log(result,'result')
                 const index = result.findIndex(item => item.path === route.path)
                 if(index===-1) {
                     const findRoute = allRoutes.find(r=>r.path === route.path)
-                    result.push(findRoute)
+                    if(findRoute){
+                        result.push(findRoute)
+                    } else {
+                        console.log('路由不存在')
+                    }
                 }
             }
         });
         return result
     }
 
-    // 所有路由
-    const allRoutes = [
-        {
-            path: '/notesApp',
-            element: <NotesApp />
-        }
-    ]
+    
 
     // 通过权限设置动态添加路由
     const mainChildren = useMemo(()=>{

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import store from './store/index.ts'
-import {Provider, useSelector} from 'react-redux'
+import {Provider} from 'react-redux'
 import App from './App'
 import './main.scss'
 

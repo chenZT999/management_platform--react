@@ -1,6 +1,7 @@
 import './topHeader.scss'
-import userHead from '../../assets/imgs/head.jpg'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+
 export default function TopHeader(){
     const getTime=()=> {
         return new Date().toLocaleString(undefined, {
@@ -14,12 +15,13 @@ export default function TopHeader(){
         setTodayTime(time)
     }, 1000 * 30)
     
+    const userInfo = useSelector((state)=>state.userInfo)
 
     return (
         <div className="top-header-box flex-end-middle">
             {todayTime}
-            <img src={userHead} alt="" className='user-avatar'/>
-            欢迎少爷上线
+            <img src={userInfo.avatar} alt="" className='user-avatar'/>
+            欢迎{userInfo.userName}上线
         
         </div>
     )
