@@ -25,6 +25,9 @@ const initialState: InitialState = {
                 {
                     name: '笔记本',
                     path: '/notesApp'
+                }, {
+                    name: '拖拽控件',
+                    path: '/dragPage'
                 }
             ]
         }, {
@@ -34,8 +37,8 @@ const initialState: InitialState = {
                     name: '表单控件',
                     path: '/formPage'
                 }, {
-                    name: '表格组件',
-                    path: '/tablePage'
+                    name: '测试',
+                    path: '/eventTest'
                 }
             ]
         }

@@ -1,0 +1,8 @@
+.drag-left-box{
+    width: 150px;height:100%;
+    border-right: 1px solid #ccc;
+    .component-item{
+        cursor: move;
+        margin: 12px 16px;
+    }
+}

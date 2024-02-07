@@ -11,7 +11,8 @@ export default function LeftNav(){
     const [showNav, setShowNav] = useState(true)
     const boxStyle = useMemo(()=>{
         return {
-            width: '250px'
+            width: '250px',
+            'minWidth': '250px'
         }
     }, [showNav])
     return (

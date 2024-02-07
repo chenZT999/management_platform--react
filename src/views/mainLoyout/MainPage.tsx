@@ -8,8 +8,8 @@ export default function MainPage() {
             <TopHeader />
             <div className='flex-top bottom-box'>
                 <LeftNav></LeftNav>
-                <div>
-                    <Outlet />
+                <div className='outlet-box'>
+                    <Outlet />11
                 </div>
             </div>
         </div>
