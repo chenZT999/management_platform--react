@@ -16,7 +16,6 @@ export default function App() {
             if(route.children) {
                 getUserMenu(route.children, result)
             } else {
-                console.log(result,'result')
                 const index = result.findIndex(item => item.path === route.path)
                 if(index===-1) {
                     const findRoute = allRoutes.find(r=>r.path === route.path)

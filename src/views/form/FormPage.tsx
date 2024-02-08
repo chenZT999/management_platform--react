@@ -6,7 +6,6 @@ export default function FormPage() {
     const inputRef = useRef()
     const onButton = ()=>{
         const data = inputRef.current.testRef
-        console.log(data,'data')
     }
     return (
         <div className="form-page-box">

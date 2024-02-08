@@ -32,7 +32,6 @@ export default function ImportBox({notes, _refreshNotes}: {notes: NoteItem[], _r
         reader.readAsText((input as HTMLInputElement).files![0],'utf8') // input.files[0]为第一个文件
         reader.onload = ()=>{
             const res = JSON.parse(reader.result as string || '') 
-            console.log(res,'res')
             if(Array.isArray(res)) {
                 const flag = res.every((note: NoteItem)=>{
                     return note && note.title && note.body
@@ -58,7 +57,6 @@ export default function ImportBox({notes, _refreshNotes}: {notes: NoteItem[], _r
 
     const [importType, setImportType] = useState(true)
     const onChange = (e: any)=>{
-        console.log(e.target,'e.target')
         setImportType(e.target.value)
     }
     return (

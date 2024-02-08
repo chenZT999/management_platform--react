@@ -11,7 +11,6 @@ export default class NotesAPI {
     const notes = NotesAPI.getAllNotes();
     const existing = notes.find((note: NoteItem) => note.id === noteToSave.id);
 
-    console.log(existing,'existing')
     // Edit/Update
     if (existing) {
       existing.title = noteToSave.title;

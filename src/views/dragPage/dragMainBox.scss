@@ -1,4 +1,11 @@
 .drag-main-box{
     flex: 1;
     height: 100%;
+    position: relative;
+
+    .component-item{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

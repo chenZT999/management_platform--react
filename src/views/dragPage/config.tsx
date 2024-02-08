@@ -1,13 +1,23 @@
-import MyButton from '@/components/MyButton'
-import MyInput from '@/components/MyInput'
 
-export const allFromComponent = [
+import React from 'react'
+
+export interface XyDistance {
+    x?: number
+    y?: number
+}
+export interface ComponentData extends XyDistance {
+    name: string
+    component?: string
+    
+}
+
+export const allFromComponent: ComponentData[] = [
     {
         name: '按钮',
-        component: <MyButton />
+        component: 'MyButton'
     }, {
         name: '输入框',
-        component: <MyInput />
+        component: 'MyInput'
     }
 
 ]

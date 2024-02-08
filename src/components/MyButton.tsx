@@ -31,7 +31,7 @@ import { forwardRef } from "react";
         })
         return (
             <Button {...porps}>
-                {porps.children}
+                {porps.children || '提交'} 
             </Button>
         )
     }

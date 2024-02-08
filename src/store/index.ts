@@ -1,11 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit'
 import counterReducer from './counterSlice.ts'
 import userInfoReducer from './userInfo.ts'
+import dragComponentReducer from './dragComponent.ts'
 
 const store = configureStore({
     reducer: {
         counter: counterReducer,
-        userInfo: userInfoReducer
+        userInfo: userInfoReducer,
+        dragComponent: dragComponentReducer
     }
 })
 // 从 store 本身推断 `RootState` 和 `AppDispatch` 类型

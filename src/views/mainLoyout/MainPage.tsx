@@ -9,7 +9,7 @@ export default function MainPage() {
             <div className='flex-top bottom-box'>
                 <LeftNav></LeftNav>
                 <div className='outlet-box'>
-                    <Outlet />11
+                    <Outlet />
                 </div>
             </div>
         </div>
