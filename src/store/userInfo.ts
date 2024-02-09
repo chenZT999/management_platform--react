@@ -23,11 +23,11 @@ const initialState: InitialState = {
             name: '功能',
             children: [
                 {
-                    name: '笔记本',
-                    path: '/notesApp'
-                }, {
                     name: '拖拽控件',
                     path: '/dragPage'
+                }, {
+                    name: '笔记本',
+                    path: '/notesApp'
                 }
             ]
         }, {

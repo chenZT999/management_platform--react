@@ -61,8 +61,12 @@ export const dragComponent = createSlice({
         },
 
         changeCompByKey: (state, {payload}: PayloadAction<any>) => {
-            const {key, value} = payload
-            state.componentList[state.editIndex][key] = value
+            const {key, value, key2} = payload
+            if(key2){
+                state.componentList[state.editIndex][key][key2] = value
+            } else {
+                state.componentList[state.editIndex][key] = value
+            }
         },
     }
 
