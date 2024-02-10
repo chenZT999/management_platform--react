@@ -1,12 +1,13 @@
-import { ComponentData, XyDistance } from '@/views/dragPage/config'
+import { ComponentData, SettingData, XyDistance } from '@/views/dragPage/config'
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-interface InitialState {
+export interface DragComponentState {
     componentList: ComponentData[],
     movingComponent: ComponentData
     dropAble: boolean
     xyDistance: XyDistance
     editIndex: number
+    canvasSetting: SettingData
 }
 
 const initialState = {
@@ -19,8 +20,29 @@ const initialState = {
         y: 0
     },
     dropAble: false,
-    editIndex: -1
-} as InitialState
+    editIndex: -1,
+    canvasSetting: {
+        options: [
+            {
+                name: '画布宽度',
+                component: 'MyInputNumber',
+                key: 'width',
+                prop: {
+                    min: 1,
+                    max: 1920 
+                }
+            }, {
+                name: '画布高度',
+                component: 'MyInputNumber',
+                key: 'height',
+            }
+        ],
+        form: {
+            width: 1100,
+            height: 800
+        }
+    }
+} as DragComponentState
 
 export const dragComponent = createSlice({
     name: 'dragComponent',
@@ -32,24 +54,20 @@ export const dragComponent = createSlice({
         },
 
         // 添加或编辑控件
-        editComponent: (state, {payload}: PayloadAction<{compItem: ComponentData; index: number}>)=>{
-            const {compItem, index} = payload
-            console.log(state.dropAble,index,'state.dropAble')
+        editComponent: (state, {payload}: PayloadAction<{compItem: ComponentData}>)=>{
+            const {compItem} = payload
+            console.log(state.dropAble,'state.dropAble')
             if(!state.dropAble && state.editIndex===-1) return
-            // 编辑
-            if(index>=0){
-                state.componentList.splice(index, 1, {
-                    ...compItem,
+            // 添加
+            state.componentList.push({
+                ...compItem,
+                name: `${compItem.name}_${state.componentList.length+1}`,
+                form: {
+                    ...compItem.form,
                     ...state.xyDistance
-                })
-            } else {
-                // 添加
-                state.componentList.push({
-                    ...compItem,
-                    name: `${compItem.name}_${state.componentList.length+1}`,
-                    ...state.xyDistance
-                })
-            }
+                }
+            })
+            state.editIndex = state.componentList.length-1
         },
 
         setDistance: (state, {payload}: PayloadAction<XyDistance>) => {
@@ -60,13 +78,17 @@ export const dragComponent = createSlice({
             state.editIndex = payload
         },
 
+        // 改变设置
         changeCompByKey: (state, {payload}: PayloadAction<any>) => {
-            const {key, value, key2} = payload
-            if(key2){
-                state.componentList[state.editIndex][key][key2] = value
-            } else {
-                state.componentList[state.editIndex][key] = value
+            const {key, value} = payload
+            if(state.editIndex===-1){
+                // 改变画布配置
+                console.log(key,'key',value)
+                state.canvasSetting.form![key] = value
+                console.log(state.canvasSetting.form![key],'state')
+                return 
             }
+            state.componentList[state.editIndex].form![key] = value
         },
     }
 

@@ -5,13 +5,18 @@ export interface XyDistance {
     x?: number
     y?: number
 }
-export interface ComponentData extends XyDistance {
-    name: string
-    component?: string
+
+export interface SettingData {
     options?: any[]
     form?: {
         [key: string]: string|number|boolean
     }
+}
+
+export interface ComponentData extends SettingData  {
+    name: string
+    component?: string
+    
     
 }
 
@@ -45,3 +50,7 @@ export const allFromComponent: ComponentData[] = [
     }
 
 ]
+
+function Mixin(XyDistance: any, Setting: any) {
+    throw new Error('Function not implemented.')
+}

@@ -17,7 +17,7 @@ export default function DragLeftBox() {
     }
 
     function handleDragEnd() {
-        useDispatch(editComponent({compItem: movingComp, index: -1}))
+        useDispatch(editComponent({compItem: movingComp}))
     }
 
     return (

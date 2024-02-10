@@ -1,5 +1,11 @@
 .drag-page-box{
     width:100%;
-    height: 100vh;
-    overflow: hiddren;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+
+    .middle-box{ 
+        flex: 1;
+        overflow: auto;
+        height: 100%;  
+    }
 }

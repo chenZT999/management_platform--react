@@ -1,12 +1,9 @@
-import { useEffect, useRef, useCallback } from 'react'
-import { changeCompByKey, editComponent, setEditIndex } from '@/store/dragComponent'
-import { ComponentData } from './config'
-import {throttle} from '@/utils/myFunction'
+import { useEffect, useRef } from 'react'
+import { changeCompByKey, setEditIndex } from '@/store/dragComponent'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import MyButton from '@/components/MyButton'
 import MyInput from '@/components/MyInput'
-import { useMemo } from 'react'
-import { MouseEventHandler } from 'react'
+import './componentItem.scss/'
 
 
 let moveOldDistance = {
@@ -16,6 +13,7 @@ let moveOldDistance = {
 
 export default function ComponentItem({index, compItem}) {
     const useDispatch = useAppDispatch()
+    const editIndex = useAppSelector(state => state.dragComponent.editIndex)
 
     // 判断渲染的控件
     function renderComponent() {
@@ -30,10 +28,14 @@ export default function ComponentItem({index, compItem}) {
     }
 
     function getStyle() {
-        const {x, y} = compItem
-        return {
+        const {x, y} = compItem.form
+        const style: any = {
             transform: `translate(${x}px, ${y}px)`
         }
+        if(editIndex=== index) {
+            style.outline = '1px solid #6666ff'
+        }
+        return style
     }
 
     useEffect(()=>{
@@ -61,8 +63,8 @@ export default function ComponentItem({index, compItem}) {
             x: event.clientX,
             y: event.clientY,
         }
-        useDispatch(changeCompByKey({key: 'x', value: (compItem.x+diffX)}))
-        useDispatch(changeCompByKey({key: 'y', value: (compItem.y+diffY)}))
+        useDispatch(changeCompByKey({key: 'x', value: (compItem.form.x+diffX)}))
+        useDispatch(changeCompByKey({key: 'y', value: (compItem.form.y+diffY)}))
     }
 
 
@@ -85,9 +87,9 @@ export default function ComponentItem({index, compItem}) {
 
 
     return (
-        <div key={index} className="component-item flex-center" style={getStyle()} 
+        <div className="component-item flex-center" style={getStyle()} 
             onMouseDown={handleMouseDown} >
-            {compItem.form.title}:  {renderComponent()}
+            <div className='label'>{compItem.form.title}</div>：  {renderComponent()}
         </div>
     )
 }
