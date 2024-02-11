@@ -22,6 +22,7 @@ export default function DragLeftBox() {
 
     return (
         <div className='drag-left-box'>
+            <div className='tip'>可拖动下面控件至灰色区域</div>
             {
                 allFromComponent.map((item, index) => {
                     return (

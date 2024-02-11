@@ -5,13 +5,14 @@ import './dragMainBox.scss'
 
 import { setDistance, setEditIndex } from '@/store/dragComponent'
 import ComponentItem from './ComponentItem'
+import { useMemo } from 'react'
 
 
 let throttleTime = 0
 export default function DragMainBox() {
     const useDispatch = useAppDispatch()
     const componentList = useAppSelector(state=>state.dragComponent.componentList)
-
+    const editIndex = useAppSelector(state=>state.dragComponent.editIndex)
 
     function handleDrag(flag: boolean) {
         useDispatch(setDropAble(flag))
@@ -46,6 +47,26 @@ export default function DragMainBox() {
             useDispatch(setEditIndex(-1))
         }
     }
+
+    const lineObj = useMemo(()=>{
+        if(editIndex==-1) return
+        const currentComp = componentList[editIndex]
+        const {x, y, width, height} = currentComp.form
+        return {
+            top: {
+                top: y-1+'px'
+            },
+            left: {
+                left: x-1+'px'
+            },
+            bottom: {
+                top: y+height+'px'
+            },
+            right: {
+                left: x+width+'px'
+            },
+        }
+    }, [componentList, editIndex])
     
 
     return (
@@ -55,6 +76,17 @@ export default function DragMainBox() {
                 componentList.map((compItem, index) => {
                     return <ComponentItem key={index} index={index} compItem={compItem} />
                 })
+            }
+            
+            {
+                editIndex!==-1?
+                <div>
+                    <div className='line line-top' style={lineObj.top}></div>
+                    <div className='line line-bottom' style={lineObj.bottom}></div>
+                    <div className='line line-left' style={lineObj.left}></div>
+                    <div className='line line-right' style={lineObj.right}></div>
+                </div>
+                : <div />
             }
         </div>
     )

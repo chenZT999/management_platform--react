@@ -90,6 +90,7 @@ export default function ComponentItem({index, compItem}) {
         <div className="component-item flex-center" style={getStyle()} 
             onMouseDown={handleMouseDown} >
             <div className='label'>{compItem.form.title}</div>：  {renderComponent()}
+
         </div>
     )
 }

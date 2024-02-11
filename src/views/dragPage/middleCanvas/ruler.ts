@@ -35,7 +35,7 @@ interface IOption {
 
 type Option = Partial<IOption>
 
-export class Ruler {
+class Ruler {
   canvas = document.createElement('canvas')
   ctx!: CanvasRenderingContext2D
 

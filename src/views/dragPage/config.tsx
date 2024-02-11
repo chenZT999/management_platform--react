@@ -32,7 +32,9 @@ export const allFromComponent: ComponentData[] = [
             }
         ],
         form: {
-            title: '按钮'
+            title: '按钮',
+            width: 150,
+            height: 32,
         }
     }, {
         name: '输入框',
@@ -45,7 +47,9 @@ export const allFromComponent: ComponentData[] = [
             }
         ],
         form: {
-            title: '输入框'
+            title: '输入框',
+            width: 269,
+            height: 32,
         }
     }
 

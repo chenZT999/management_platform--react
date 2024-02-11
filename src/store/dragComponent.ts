@@ -80,13 +80,22 @@ export const dragComponent = createSlice({
 
         // 改变设置
         changeCompByKey: (state, {payload}: PayloadAction<any>) => {
-            const {key, value} = payload
+            let {key, value} = payload
             if(state.editIndex===-1){
                 // 改变画布配置
-                console.log(key,'key',value)
                 state.canvasSetting.form![key] = value
-                console.log(state.canvasSetting.form![key],'state')
                 return 
+            }
+            // 拖动位置不可超出画布
+            const {height, width} = state.canvasSetting.form!
+            const maxHeight = Number(height)-100
+            const maxWidth = Number(width)-100
+            if(key==='y'){
+                if(value<0) value=0
+                if(value>maxHeight) value=maxHeight
+            } else if(key==='x'){
+                if(value<0) value=0
+                if(value>maxWidth) value=maxWidth
             }
             state.componentList[state.editIndex].form![key] = value
         },

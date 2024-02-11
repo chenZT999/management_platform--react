@@ -1,10 +1,19 @@
+$boder: 1px dashed rgb(18,90,166);
+
 .drag-main-box{
     position: relative;
     background: #eee;
+    margin:27px;
 
     .component-item{
         position: absolute;
         top: 0;
         left: 0;
     }
+
+    .line{ position: absolute; pointer-events: none; }
+    .line-top{ border-top: $boder; width: 100%; }
+    .line-bottom{ border-bottom: $boder;width: 100%;}
+    .line-left{ border-left: $boder;height: 100%;}
+    .line-right{ border-right: $boder;height: 100%;}
 }

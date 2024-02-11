@@ -6,6 +6,24 @@
     .middle-box{ 
         flex: 1;
         overflow: auto;
-        height: 100%;  
+        height: 100%; 
+        position: relative; 
+    }
+    .ruler-x {
+        position: absolute;
+        left: 27px;
+        right: 0;
+        top: 0;
+        height: 27px;
+        width: auto;
+    }
+
+    .ruler-y {
+        position: absolute;
+        left: 0;
+        top: 27px;
+        width: 27px;
+        height: auto;
+        bottom: 0;
     }
 }
